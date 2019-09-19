@@ -21,9 +21,9 @@ public class Paragraph {
     @GenericGenerator(name= "increment", strategy= "increment")
     private long id;
 
-    private String text;
-    private byte image;
-    private int order;
+    private String paragraph_text;
+    private byte[] image;
+    private int paragraph_order;
 
     @ManyToOne
     private Article article;

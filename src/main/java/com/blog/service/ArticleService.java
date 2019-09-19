@@ -2,18 +2,50 @@ package com.blog.service;
 
 import com.blog.entity.Article;
 import com.blog.entity.Category;
+import com.blog.repository.ArticleRepository;
+import com.blog.repository.CategoryRepository;
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
-public interface ArticleService {
+@Service
+@RequiredArgsConstructor
+public class ArticleService {
 
-    Article createArticle(Article article);
-    Article editArticle(Article article);
-    void deleteArticle(Article article);
-    List<Article> getListArticles();
-    Article findArticleById(long id);
-    Article findArticleByName(String name);
+    private final ArticleRepository articleRepository;
+    private final CategoryRepository categoryRepository;
 
-    //maybe add search by category
-    List<Article> getArticlesByCategory(Category category);
+    @Transactional
+    public Article createArticle(Article article) {
+        Category categoryOfArticle = categoryRepository.findCategoryById(article.getCategory().getId()).orElse(null);
+        article.setCategory(categoryOfArticle);
+        return articleRepository.saveAndFlush(article);
+    }
+
+    public Article editArticle(Article article) {
+        return articleRepository.saveAndFlush(article);
+    }
+
+    public void deleteArticle(long id) {
+        articleRepository.deleteArticleById(id);
+    }
+
+    public List<Article> getArticles() {
+        return articleRepository.findAll();
+    }
+
+    //maybe superfluous
+    public Article findArticleById(long id) {
+        return articleRepository.findById(id).orElse(null);
+    }
+
+    public Article findArticleByName(String name) {
+        return articleRepository.findArticleByName(name).orElse(null);
+    }
+
+    public List<Article> getArticlesByCategory(Category category) {
+        return articleRepository.findArticleByCategory(category);
+    }
 }
