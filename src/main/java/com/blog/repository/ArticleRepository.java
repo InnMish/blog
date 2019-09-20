@@ -13,7 +13,7 @@ public interface ArticleRepository extends JpaRepository<Article, Long> {
 
     Optional<Article> findArticleByName(String name);
 
-    List<Article> findArticleByCategory(Category category);
+    List<Article> findArticleByCategoryName(String name);
 
     void deleteArticleById(long id);
 }

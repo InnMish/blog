@@ -31,15 +31,15 @@ public class ArticleController {
     }
 
     @ApiOperation(value = "Get article by name", tags = {"Article"})
-    @GetMapping(value = "/search/{name}")
+    @GetMapping(value = "/search/name/{name}")
     public Article getArticleByName(@PathVariable("name") String name) {
         return articleService.findArticleByName(name);
     }
 
-    @ApiOperation(value = "Get articles by category", tags = {"Article"})
-    @GetMapping(value = "/filter/{category}")
-    public List<Article> getArticleByCategory(@PathVariable("category") Category category) {
-        return articleService.getArticlesByCategory(category);
+    @ApiOperation(value = "Get articles by category name", tags = {"Article"})
+    @GetMapping(value = "/filter/{title}")
+    public List<Article> getArticleByCategoryName(@PathVariable("title") String name) {
+        return articleService.getArticlesByCategoryName(name);
     }
 
     @ApiOperation(value = "Create article", tags = {"Article"})

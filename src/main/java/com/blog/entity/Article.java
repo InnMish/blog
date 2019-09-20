@@ -1,5 +1,7 @@
 package com.blog.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -16,7 +18,6 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-
 @Table(name = "article", schema = "public")
 public class Article {
 
@@ -30,14 +31,16 @@ public class Article {
 
     //additional fields
     @OneToMany(mappedBy = "article", cascade = CascadeType.ALL)
+    @JsonIgnoreProperties("article")
     private List<Comment> comments;
 
     @OneToMany(mappedBy = "article", cascade = CascadeType.ALL)
-    //@NotFound(action = NotFoundAction.IGNORE)
+    @NotFound(action = NotFoundAction.IGNORE)
+    @JsonIgnore
     private List<Paragraph> paragraphs;
 
-    @ManyToOne(fetch=FetchType.LAZY, cascade={ CascadeType.PERSIST, CascadeType.MERGE })
-    //@NotFound(action = NotFoundAction.IGNORE)
+    @ManyToOne
+    @NotFound(action = NotFoundAction.IGNORE)
     @JoinColumn(name = "category_id", nullable = false)
     private Category category;
 }

@@ -45,7 +45,7 @@ public class ArticleService {
         return articleRepository.findArticleByName(name).orElse(null);
     }
 
-    public List<Article> getArticlesByCategory(Category category) {
-        return articleRepository.findArticleByCategory(category);
+    public List<Article> getArticlesByCategoryName(String name) {
+        return articleRepository.findArticleByCategoryName(name);
     }
 }
