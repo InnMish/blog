@@ -1,0 +1,26 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+table {
+  width: 100%;
+}
+
+th.mat-sort-header-sorted {
+  color: black;
+}
+
+.add-btn {
+  float: left;
+}
+
+.hidden {
+  visibility: hidden;
+}
+
+button .disabled {
+  pointer-events: none;
+  cursor: not-allowed;
+}

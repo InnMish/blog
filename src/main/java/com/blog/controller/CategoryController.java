@@ -12,6 +12,7 @@ import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
+@CrossOrigin(origins = "http://localhost:4200")
 @Api(value = "Category", tags = {"Category"})
 public class CategoryController {
     private final CategoryService categoryService;

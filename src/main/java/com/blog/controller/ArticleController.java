@@ -1,7 +1,6 @@
 package com.blog.controller;
 
 import com.blog.entity.Article;
-import com.blog.entity.Category;
 import com.blog.service.ArticleService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -13,6 +12,7 @@ import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
+@CrossOrigin(origins = "http://localhost:4200")
 @Api(value = "Article", tags = {"Article"})
 public class ArticleController {
 
