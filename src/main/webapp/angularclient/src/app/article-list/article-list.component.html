@@ -1,8 +1,11 @@
-<p>article-list works!</p>
-<table>
-  <tr *ngFor="let article of articles">
-    <td>{{ article.id }}</td>
-    <td>{{ article.name }}</td>
-    <td>{{ article.description }}</td>
-  </tr>
-</table>
+<div class="card my-5">
+  <div class="card-body">
+    <table class="table table-bordered table-striped">
+      <tbody>
+      <tr *ngFor="let article of articles">
+        <td routerLink="/articles/{{article.id}}">{{ article.name }}</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

@@ -6,24 +6,27 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
 import java.util.List;
 
 @Service
 @RequiredArgsConstructor
+@Transactional
 public class ParagraphService {
 
     private final ParagraphRepository paragraphRepository;
 
-    public Paragraph createParagraph(Paragraph paragraph) {
-        return paragraphRepository.saveAndFlush(paragraph);
+    public Paragraph createParagraph(Paragraph paragraph, MultipartFile file) throws IOException {
+        paragraph.setImage(file.getBytes());
+        return paragraphRepository.save(paragraph);
     }
 
     public Paragraph editParagraph(Paragraph paragraph) {
         return paragraphRepository.saveAndFlush(paragraph);
     }
 
-    @Transactional
     public void deleteParagraphById(long id) {
         paragraphRepository.deleteParagraphById(id);
     }

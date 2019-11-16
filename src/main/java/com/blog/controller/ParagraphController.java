@@ -7,7 +7,9 @@ import io.swagger.annotations.ApiOperation;
 import lombok.RequiredArgsConstructor;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
 import java.util.List;
 
 @RestController
@@ -21,8 +23,8 @@ public class ParagraphController {
     @Transactional
     @ApiOperation(value = "Create paragraph", tags = {"Paragraph"})
     @PostMapping(value = "/create/paragraph")
-    public Paragraph createParagraph(@RequestBody Paragraph paragraph) {
-        return paragraphService.createParagraph(paragraph);
+    public Paragraph createParagraph(@RequestBody Paragraph paragraph, @RequestParam MultipartFile file) throws IOException {
+        return paragraphService.createParagraph(paragraph, file);
     }
 
     @ApiOperation(value = "Edit paragraph", tags = {"Paragraph"})

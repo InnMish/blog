@@ -21,10 +21,16 @@ public class Paragraph {
     @GenericGenerator(name= "increment", strategy= "increment")
     private long id;
 
-    private String paragraph_text;
+    @Column(name = "paragraph_text")
+    private String paragraphText;
+
+    @Column(name = "image")
     private byte[] image;
-    private int paragraph_order;
+
+    @Column(name = "paragraph_order")
+    private int paragraphOrder;
 
     @ManyToOne
+    @JoinColumn(name = "article_id")
     private Article article;
 }
