@@ -16,4 +16,8 @@ export class ArticleService {
   public findAll(): Observable<Article[]> {
     return this.http.get<Article[]>(this.articleUrl);
   }
+
+  public save(article: Article) {
+    return this.http.post<Article>(this.articleUrl, article);
+  }
 }

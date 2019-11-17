@@ -6,17 +6,22 @@ import { AppComponent } from './app.component';
 import { ArticleListComponent } from './article-list/article-list.component';
 import {HttpClientModule} from '@angular/common/http';
 import { ParagraphListComponent } from './paragraph-list/paragraph-list.component';
+import { ArticleFormComponent } from './article-form/article-form.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
     ArticleListComponent,
-    ParagraphListComponent
+    ParagraphListComponent,
+    ArticleFormComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]

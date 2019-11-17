@@ -1,8 +1,9 @@
 <div>
 <nav>
-  <div class="nav-wrapper">
+  <div style="background-color:#77eb75"  class="nav-wrapper">
     <a class="left hide-on-med-and-down brand-logo" href="#">{{ title }}</a>
     <ul id="nav-mobile" class="right hide-on-med-and-down">
+      <li><a routerLink="/create"> Write article</a> </li>
       <li><a routerLink="/articles"> Recipes</a></li>
       <li><a href="badges.html">Food facts</a></li>
       <li><a href="collapsible.html">About me</a></li>
@@ -11,19 +12,3 @@
 </nav>
   <router-outlet></router-outlet>
 </div>
-<!--<div class="container">
-    <div class="row">
-      <div class="col-md-12">
-        <div class="card bg-dark my-5">
-          <div class="card-body">
-            <h2 class="card-title text-center text-white py-3">Welcome to {{ title }}!</h2>
-            <ul class="text-center list-inline py-3">
-              <li class="list-inline-item">
-              <a routerLink="/articles"> <button class="btn btn-info">Recipes</button></a>
-            </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>-->

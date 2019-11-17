@@ -52,7 +52,7 @@ public class CategoryController {
     @Transactional
     @ApiOperation(value = "Get category by name", tags = {"Category"})
     @GetMapping(value = "/search/category/name/{name}")
-    public Category getCategoryById(@PathVariable("name") String name) {
+    public Category getCategoryByName(@PathVariable("name") String name) {
         return categoryService.findCategoryByName(name);
     }
 }
