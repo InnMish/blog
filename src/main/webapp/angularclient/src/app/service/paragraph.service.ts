@@ -8,10 +8,8 @@ import {map} from "rxjs/operators";
   providedIn: 'root'
 })
 export class ParagraphService {
-  /*private paragraphUrl: string;*/
 
   constructor(private http: HttpClient) {
-    /*this.paragraphUrl = 'http://localhost:8080/paragraphs/article/{id}';*/
   }
 
   public findParagraphsByArticleId(articleId: number): Observable<Paragraph[]> {

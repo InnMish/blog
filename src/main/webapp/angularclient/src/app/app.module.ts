@@ -8,6 +8,10 @@ import {HttpClientModule} from '@angular/common/http';
 import { ParagraphListComponent } from './paragraph-list/paragraph-list.component';
 import { ArticleFormComponent } from './article-form/article-form.component';
 import { FormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatStepperModule} from "@angular/material/stepper";
+import {MatSelectModule} from "@angular/material/select";
+import {MatButtonModule} from "@angular/material/button";
 
 @NgModule({
   declarations: [
@@ -20,7 +24,12 @@ import { FormsModule } from '@angular/forms';
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    BrowserAnimationsModule,
+    MatStepperModule,
+    MatSelectModule,
+    MatButtonModule
+
 
   ],
   providers: [],

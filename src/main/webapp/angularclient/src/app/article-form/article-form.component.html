@@ -1,9 +1,90 @@
-<mat-horizontal-stepper>
-  <mat-step>
-    ...
+<mat-horizontal-stepper labelPosition="bottom" linear>
+  <mat-step label="Choose category">
+    <div class="card my-5">
+      <div class="card-body">
+        <form (ngSubmit)="onCategorySubmit()" #categoryForm="ngForm">
+          <div class="form-group">
+            <label>Create new category</label>
+            <input type="text" [(ngModel)]="category.name"
+                   class="form-control"
+                   name="name"
+                   placeholder="Enter category name"
+                   required #name="ngModel">
+          </div>
+          <div *ngIf="name.invalid && (name.dirty || name.touched)" class="alert alert-danger">Title is required</div>
+          <button type="submit" [disabled]="!categoryForm.form.valid"
+                  class="btn btn-info">Submit
+          </button>
+        </form>
+      </div>
+    </div>
+    <div>
+      <mat-form-field>
+        <mat-label>Select category</mat-label>
+        <mat-select>
+          <mat-option *ngFor="let category of categories" [value]="category.name">
+            {{category.name}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <br>
+    <div>
+      <button mat-button matStepperNext>Next</button>
+    </div>
+  </mat-step>
+  <mat-step label="Enter a title">
+    <div class="card my-5">
+      <div class="card-body">
+        <form (ngSubmit)="onArticleSubmit()" #articleForm="ngForm">
+          <div class="form-group">
+            <label>Write a title</label>
+            <input type="text" [(ngModel)]="article.name"
+                   class="form-control"
+                   name="name"
+                   placeholder="Enter a title"
+                   required #name="ngModel">
+          </div>
+          <div *ngIf="name.invalid && (name.dirty || name.touched)" class="alert alert-danger">Title is required</div>
+          <form (ngSubmit)="onArticleSubmit()" #articleForm="ngForm">
+            <div class="form-group">
+              <label>Write description of article</label>
+              <input type="text" [(ngModel)]="article.description" [ngModelOptions]="{standalone: true}"
+                     class="form-control"
+                     description="description"
+                     placeholder="Write description of article"
+                     required #description="ngModel">
+            </div>
+            <div *ngIf="description.invalid && (description.dirty || description.touched)"
+                 class="alert alert-danger">Description is required
+            </div>
+          </form>
+        </form>
+      </div>
+    </div>
     <div>
       <button mat-button matStepperPrevious>Back</button>
       <button mat-button matStepperNext>Next</button>
+    </div>
+  </mat-step>
+  <mat-step label="Write an article">
+    Content 2
+    <div>
+      <button mat-button matStepperPrevious>Back</button>
+      <button mat-button matStepperNext>Next</button>
+    </div>
+  </mat-step>
+  <mat-step label="Preview">
+    Content 2
+    <div>
+      <button mat-button matStepperPrevious>Back</button>
+      <button mat-button matStepperNext>Next</button>
+    </div>
+  </mat-step>
+  <mat-step label="Send">
+    Content 2
+    <div>
+      <button mat-button matStepperPrevious>Back</button>
     </div>
   </mat-step>
 </mat-horizontal-stepper>
