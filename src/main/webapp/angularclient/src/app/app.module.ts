@@ -12,6 +12,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatStepperModule} from "@angular/material/stepper";
 import {MatSelectModule} from "@angular/material/select";
 import {MatButtonModule} from "@angular/material/button";
+import {AngularEditorModule} from "@kolkov/angular-editor";
 
 @NgModule({
   declarations: [
@@ -28,9 +29,8 @@ import {MatButtonModule} from "@angular/material/button";
     BrowserAnimationsModule,
     MatStepperModule,
     MatSelectModule,
-    MatButtonModule
-
-
+    MatButtonModule,
+    AngularEditorModule
   ],
   providers: [],
   bootstrap: [AppComponent]

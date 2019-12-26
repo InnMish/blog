@@ -36,7 +36,7 @@
   <mat-step label="Enter a title">
     <div class="card my-5">
       <div class="card-body">
-        <form (ngSubmit)="onArticleSubmit()" #articleForm="ngForm">
+        <form (ngSubmit)="onArticleSubmit()" #titleForm="ngForm">
           <div class="form-group">
             <label>Write a title</label>
             <input type="text" [(ngModel)]="article.name"
@@ -46,7 +46,7 @@
                    required #name="ngModel">
           </div>
           <div *ngIf="name.invalid && (name.dirty || name.touched)" class="alert alert-danger">Title is required</div>
-          <form (ngSubmit)="onArticleSubmit()" #articleForm="ngForm">
+          <form (ngSubmit)="onArticleSubmit()" #titleForm="ngForm">
             <div class="form-group">
               <label>Write description of article</label>
               <input type="text" [(ngModel)]="article.description" [ngModelOptions]="{standalone: true}"
@@ -68,8 +68,14 @@
     </div>
   </mat-step>
   <mat-step label="Write an article">
-    Content 2
-    <div>
+    <form (ngSubmit)="onArticleSubmit()" #articleForm="ngForm">
+      <angular-editor [placeholder]="'Enter text here'" [(ngModel)]="article.paragraph"
+                      [ngModelOptions]="{standalone: true}"></angular-editor><br>
+      <button type="submit" [disabled]="!articleForm.form.valid"
+              class="btn btn-info">Submit
+      </button>
+    </form>
+    <div><br>
       <button mat-button matStepperPrevious>Back</button>
       <button mat-button matStepperNext>Next</button>
     </div>

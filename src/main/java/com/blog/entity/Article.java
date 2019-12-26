@@ -28,6 +28,7 @@ public class Article {
 
     private String name;
     private String description;
+    private String paragraph;
 
     //additional fields
     @OneToMany(mappedBy = "article", cascade = CascadeType.ALL)
