@@ -1,9 +1,25 @@
 package com.blog.service;
 
 import com.blog.entity.Comment;
+import com.blog.repository.CommentRepository;
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Service;
 
-public interface CommentService {
+@Service
+@RequiredArgsConstructor
+public class CommentService {
 
-    Comment createComment(Comment comment);
-    void deleteComment(Comment comment);
+    private final CommentRepository commentRepository;
+
+    public Comment createComment(Comment comment) {
+        return commentRepository.saveAndFlush(comment);
+    }
+
+    public Comment editComment(Comment comment) {
+        return commentRepository.saveAndFlush(comment);
+    }
+
+    public void deleteComment(long id) {
+        commentRepository.deleteCommentById(id);
+    }
 }

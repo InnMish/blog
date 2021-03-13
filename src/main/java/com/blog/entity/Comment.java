@@ -1,5 +1,6 @@
 package com.blog.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -23,8 +24,9 @@ public class Comment {
 
     private String author;
     private String text;
-    private byte photo;
+    private byte image;
 
     @ManyToOne
+    @JsonIgnoreProperties("comments")
     private Article article;
 }
