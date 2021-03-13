@@ -19,7 +19,7 @@ public class ArticleService {
 
     @Transactional
     public Article createArticle(Article article) {
-        Category categoryOfArticle = categoryRepository.findCategoryById(article.getCategory().getId()).orElse(null);
+        Category categoryOfArticle = categoryRepository.findCategoryById(article.getCategory().getId());
         article.setCategory(categoryOfArticle);
         return articleRepository.saveAndFlush(article);
     }

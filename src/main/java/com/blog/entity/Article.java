@@ -11,6 +11,7 @@ import org.hibernate.annotations.NotFound;
 import org.hibernate.annotations.NotFoundAction;
 
 import javax.persistence.*;
+import java.io.InputStream;
 import java.util.List;
 
 @Getter
@@ -28,17 +29,12 @@ public class Article {
 
     private String name;
     private String description;
-    private String paragraph;
+    private byte[] page;
 
     //additional fields
     @OneToMany(mappedBy = "article", cascade = CascadeType.ALL)
     @JsonIgnoreProperties("article")
     private List<Comment> comments;
-
-    @OneToMany(mappedBy = "article", cascade = CascadeType.ALL)
-    @NotFound(action = NotFoundAction.IGNORE)
-    @JsonIgnore
-    private List<Paragraph> paragraphs;
 
     @ManyToOne
     @NotFound(action = NotFoundAction.IGNORE)

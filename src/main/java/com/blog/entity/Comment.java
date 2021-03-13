@@ -24,7 +24,7 @@ public class Comment {
 
     private String author;
     private String text;
-    private byte photo;
+    private byte image;
 
     @ManyToOne
     @JsonIgnoreProperties("comments")
